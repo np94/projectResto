@@ -1,3 +1,21 @@
-<h1>One restaurant</h1>
-
 {{>navbarpublic}}
+
+<h1>{{name}}</h1>
+{{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
+<p>
+  Cuisine type :{{genre}}.
+  <br>
+  Official website is : <a href="{{website}}">{{website}}</a>
+  <br>
+  Address:
+  {{address.number}},
+  {{address.streetName}},
+  {{address.city}}
+  {{address.zipCode}},
+  {{address.country}}
+  <br>
+  Description : {{description}}
+  <br>
+  Price range : {{price}}
+
+</p>
