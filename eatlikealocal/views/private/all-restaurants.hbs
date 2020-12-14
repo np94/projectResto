@@ -1,0 +1,20 @@
+<h1>All restaurants signed in</h1>
+
+{{> navbarprivate}}
+
+{{#each allRestaurants}}
+<div class="card-resto">
+    <div class="resto-image">
+        {{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
+    </div>
+
+    <div class="resto-text">
+        <h3>{{this.name}}</h3>
+        <p>{{this.city}}</p>
+        <p>{{this.genre}}</p>
+        <p>Recommended by {{this.user}}</p>
+        <p>Added on...</p>
+        <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
+    </div>
+</div>
+{{/each}}

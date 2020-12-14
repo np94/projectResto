@@ -1,0 +1,31 @@
+<h1>One resto for signed in user</h1>
+
+{{> navbarprivate}}
+
+<h1>{{name}}</h1>
+{{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
+<p>
+    Cuisine type :{{genre}}.
+    <br>
+    Official website is : <a href="{{website}}">{{website}}</a>
+    <br>
+    Address:
+    {{address.number}},
+    {{address.streetName}},
+    {{address.city}}
+    {{address.zipCode}},
+    {{address.country}}
+    <br>
+    Description : {{description}}
+    <br>
+    Price range : {{price}}
+
+</p>
+
+<p>Should display all the previous comments on this id resto</p>
+
+<form method="post" action="/myprofile/comment">
+    <label for="comment"></label>
+    <input id="comment" name="comment" type="textarea" placeholder="Write your comment">
+    <button>Share</button>
+</form>

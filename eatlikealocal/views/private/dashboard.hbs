@@ -1,0 +1,27 @@
+<h1>All resto recommended by me <i class="fa fa-heart"></i></h1>
+
+{{!-- {{> navbardash}} --}}
+
+<nav>
+    <a href="/myprofile">Home</a>
+    <a href="/myprofile/dashboard/create">Add a resto</a>
+    <a href="/myprofile">My recommendations</a>
+    <a href="/myprofile">My comments</a>
+    <a href="/myprofile">Log out</a>
+</nav>
+
+{{#each allRestaurants}}
+<div class="card-resto">
+    <div class="resto-image">
+        {{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
+    </div>
+
+    <div class="resto-text">
+        <h3>{{this.name}} <a href="/"><i class="fa fa-trash"></i></a><a href="/"><i class="fa fa-edit"></i></a></h3>
+        <p>{{this.city}}</p>
+        <p>{{this.genre}}</p>
+        <p>Added on...</p>
+        <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
+    </div>
+</div>
+{{/each}}
