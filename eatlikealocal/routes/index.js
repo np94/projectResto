@@ -36,7 +36,7 @@ const CommentModel = require("./../model/Comment");
 
 router.get("/signup", async (req, res, next) => {
   try {
-    res.render("signup");
+    res.render("auth/signup");
   } catch (err) {
     next(err);
   }
