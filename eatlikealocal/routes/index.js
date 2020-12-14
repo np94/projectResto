@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const RestaurantModel = require("./../model/Restaurant");
 
 /* GET home page */
 router.get("/", (req, res, next) => {

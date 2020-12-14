@@ -5,7 +5,7 @@
 {{#each allRestaurants}}
 <div class="card-resto">
     <div class="resto-image">
-        <img src="{{this.picture}}" alt="picture of {{this.name}}">
+        {{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
     </div>
 
     <div class="resto-text">
@@ -14,7 +14,7 @@
         <p>{{this.genre}}</p>
         <p>Recommended by {{this.user}}</p>
         <p>Added on...</p>
-        <a href="/index/restaurant/{{this.id}}">See more details</a>
+        <a href="/restaurant/{{this.id}}">See more details</a>
     </div>
 </div>
 {{/each}}
