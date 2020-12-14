@@ -7,8 +7,8 @@ const userSchema = new Schema({
   email: { type: String, unique: true },
   password: String,
   city: String,
-  restaurant: [{ type: Schema.Types.ObjectId, ref: "restaurant" }],
-  comment: [{ type: Schema.Types.ObjectId, ref: "comment" }],
+  // restaurant: [{ type: Schema.Types.ObjectId, ref: "restaurant" }],
+  // comment: [{ type: Schema.Types.ObjectId, ref: "comment" }],
   avatar: {
     type: String,
     default:
@@ -16,6 +16,6 @@ const userSchema = new Schema({
   },
 });
 
-const User = mongoose.model("User", userSchema);
+const UserModel = mongoose.model("User", userSchema);
 
-module.exports = User;
+module.exports = UserModel;

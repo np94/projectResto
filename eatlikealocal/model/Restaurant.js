@@ -15,8 +15,8 @@ const restaurantSchema = new Schema(
     },
     description: String,
     price: { type: String, enum: ["€", "€€", "€€€"] },
-    user: [{ type: Schema.Types.ObjectId, ref: "user" }],
-    comment: [{ type: Schema.Types.ObjectId, ref: "comment" }],
+    // user: [{ type: Schema.Types.ObjectId, ref: "user", default: "test" }],
+    // comment: [{ type: Schema.Types.ObjectId, ref: "comment", default: "test" }],
     picture: {
       type: String,
       default:
@@ -26,6 +26,6 @@ const restaurantSchema = new Schema(
   { timestamps: true }
 );
 
-const Restaurant = mongoose.model("Restaurant", restaurantSchema);
+const RestaurantModel = mongoose.model("Restaurant", restaurantSchema);
 
-module.exports = Restaurant;
+module.exports = RestaurantModel;
