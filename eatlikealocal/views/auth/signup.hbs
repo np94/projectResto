@@ -1,1 +1,23 @@
 <h1>Sign up</h1>
+
+{{>navbarpublic}}
+<form method="post" action="/auth/signup" class="form">
+  <h1 class="title">Create your account:</h1>
+
+  <label for="firstname" class="label">First Name</label>
+  <input class="input" type="text" id="firstname" name="firstname" value="Jean">
+  <label for="lastname" class="label">Last Name</label>
+  <input class="input" type="text" id="lastname" name="lastname" value="Leroix">
+  <label for="city" class="label">City</label>
+  <input class="input" type="text" id="city" name="city" value="Paris">
+  <label for="email" class="label">Email</label>
+  <input class="input" type="text" id="email" name="email" value="my@email.com">
+  <label for="password" class="label">Password</label>
+  <input class="input" type="text" id="password" name="password" value="####">
+  <label for="picture" class="label">
+    choose a picture
+    <i class="icon fas fa-cloud-upload-alt fa-2x"></i>
+  </label>
+  <input class="is-hidden" type="file" id="picture" name="picture">
+  <button class="btn">Join!</button>
+</form>
