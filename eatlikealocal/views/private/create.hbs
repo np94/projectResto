@@ -1,20 +1,30 @@
-<form method="post" action="/dashboard/create" class="form" enctype="multipart/form-data">
-    <h1 class="title">artist create</h1>
+<form method="post" action="/myprofile/dashboard/create" class="form">
+    <h1 class="title">Share a spot</h1>
     <label for="name" class="label">name</label>
-    <input class="input" type="text" id="name" name="name" value="test artist">
-
-    <label for="description" class="label">is a band ? <input type="checkbox" name="isBand"></label>
-
+    <input class="input" type="text" id="name" name="name" value="Darroco">
+    <label for="number" class="label">number</label>
+    <input class="input" type="text" id="number" name="number" value="6">
+    <label for="streetname" class="label">street name</label>
+    <input class="input" type="text" id="streetname" name="streetname" value="rue Vivienne">
+    <label for="zipcode" class="label">zipcode</label>
+    <input class="input" type="text" id="zipcode" name="zipcode" value="75002">
+    <label for="city" class="label">city</label>
+    <input class="input" type="text" id="city" name="city" value="Paris">
+    <label for="country" class="label">country</label>
+    <input class="input" type="text" id="country" name="country" value="France">
+    <label for="website" class="label">website link</label>
+    <input class="input" type="text" id="website" name="website" value="https://www.daroco.fr/restaurant/daroco-bourse">
+    <label for="description" class="label">Tell us why you love this place !</label>
+    {{!-- <input class="input" type="text" id="description" name="description" value="Good food and lovely design"> --}}
+    <textarea name="description" id="description" cols="30" rows="3"></textarea>
+    <label for="genre" class="label">genre</label>
+    <input class="input" type="text" id="genre" name="genre" value="Italian">
+    <label for="price" class="label">price</label>
+    <input class="input" type="text" id="price" name="price" value="€€">
     <label for="picture" class="label">
         choose a picture
         <i class="icon fas fa-cloud-upload-alt fa-2x"></i>
     </label>
     <input class="is-hidden" type="file" id="picture" name="picture">
-
-    <label for="description" class="label">description</label>
-    <textarea type="text" class="input" id="description" name="description">
-        test description
-    </textarea>
-
-    <button class="btn">create</button>
+    <button class="btn">Share</button>
 </form>

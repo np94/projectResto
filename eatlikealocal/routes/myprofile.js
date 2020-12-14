@@ -44,12 +44,24 @@ router.get("/dashboard", async (req, res, next) => {
   }
 });
 
-// Display the create form
+// GET - create new resto
 router.get("/dashboard/create", async (req, res, next) => {
   try {
     res.render("private/create");
   } catch (err) {
     console.log(err);
+    next(err);
+  }
+});
+
+// POST - create new resto
+router.post("/dashboard/create", async (req, res, next) => {
+  const newResto = { ...req.body };
+  console.log(newResto);
+  try {
+    await RestaurantModel.create(newResto);
+    res.redirect("/myprofile/dashboard");
+  } catch (err) {
     next(err);
   }
 });
