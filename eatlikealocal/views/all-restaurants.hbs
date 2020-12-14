@@ -1,0 +1,22 @@
+<h1>All restaurants</h1>
+
+{{>navbarpublic}}
+
+{{#each allRestaurants}}
+<div class="card-resto">
+    <div class="resto-image">
+        <img src="{{this.picture}}" alt="picture of {{this.name}}">
+    </div>
+
+    <div class="resto-text">
+        <h3>{{this.name}}</h3>
+        <p>{{this.city}}</p>
+        <p>{{this.genre}}</p>
+        <p>Recommended by {{this.user}}</p>
+        <p>Added on...</p>
+        <a href="/index/restaurant/{{this.id}}">See more details</a>
+    </div>
+</div>
+{{/each}}
+
+{{>footersignup}}
