@@ -54,4 +54,35 @@ router.get("/dashboard/create", async (req, res, next) => {
   }
 });
 
+router.get("/dashboard/update/:id", async (req, res, next) => {
+  try {
+    const restaurantUpdate = await RestaurantModel.findById(req.params.id); // fetch the label to update
+    res.render("private/update", { restaurantUpdate }); // pass the found label to the view
+  } catch (err) {
+    next(err); // if an error occurs, display it on error.hbs page
+  }
+});
+
+router.get("/dashboard/delete/:id", async (req, res, next) => {
+  try {
+    // use the model to delete one label by id
+    await RestaurantModel.findByIdAndDelete(req.params.id);
+    res.redirect("/myprofile/dashboard"); // then redirect to labels full list
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/dashboard/update/:id", async (req, res, next) => {
+  const restoToUpdate = { ...req.body };
+  try {
+    await RestaurantModel.findByIdAndUpdate(req.params.id, restoToUpdate, {
+      new: true,
+    });
+    res.redirect("/myprofile/dashboard");
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

@@ -17,7 +17,9 @@
     </div>
 
     <div class="resto-text">
-        <h3>{{this.name}} <a href="/"><i class="fa fa-trash"></i></a><a href="/"><i class="fa fa-edit"></i></a></h3>
+        <h3>{{this.name}}</h3>
+        <a href="/myprofile/dashboard/delete/{{this._id}}"><i class="fa fa-trash"></i></a>
+        <a href="/myprofile/dashboard/update/{{this._id}}"><i class="fa fa-edit"></i></a>
         <p>{{this.city}}</p>
         <p>{{this.genre}}</p>
         <p>Added on...</p>
