@@ -114,6 +114,60 @@ const restaurants = [
     picture:
       "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
   },
+  {
+    name: "Zenith Café",
+    genre: "Vietnamese",
+    website: "www.zenithyogavietnam.com",
+    address: {
+      number: "99b/275",
+      streetName: "Au Co Tay Ho",
+      city: "Hanoi",
+      zipCode: "100000",
+      country: "Vietnam",
+    },
+    description: "Vegan vietnamien cuisine",
+    price: "€",
+    // user: "["default"]",
+    // comment: default,
+    picture:
+      "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
+  },
+  {
+    name: "Bun Bo Nam Bo - Ba Ba",
+    genre: "Vietnamese",
+    website: "https://www.facebook.com/bababunbonambo/",
+    address: {
+      number: "76",
+      streetName: "Nguyen Thai Binh Nguyen Thai Binh Ward, District 1",
+      city: "Ho Chi Minh",
+      zipCode: "700000",
+      country: "Vietnam",
+    },
+    description: "Authentic vietnamese cuisine",
+    price: "€",
+    // user: "["default"]",
+    // comment: default,
+    picture:
+      "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
+  },
+  {
+    name: "Hoi An Tofu Restaurant & Coffee",
+    genre: "Vietnamese",
+    website: "https://www.facebook.com/hoiantofurestaurant/",
+    address: {
+      number: "180",
+      streetName: "Tran Nhan Hoi An Ancient Town",
+      city: "Hoi An",
+      zipCode: "560000",
+      country: "Vietnam",
+    },
+    description: "Vietnamese street food",
+    price: "€",
+    // user: "["default"]",
+    // comment: default,
+    picture:
+      "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
+  },
 ];
 
 async function insertRestaurants() {
