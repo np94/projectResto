@@ -97,4 +97,32 @@ router.post("/dashboard/update/:id", async (req, res, next) => {
   }
 });
 
+// GET My Comments page
+router.get("/dashboard/comment", async (req, res, next) => {
+    try {
+     const allComments = await CommentModel.find().populate("author").populate("restaurant");
+     res.render("private/my-comments",  {allComments} );
+     console.log(allComments);
+    } catch (err) {
+      console.log(err);
+      next(err);
+    }
+});
+
+
+// GET delete comment page 
+router.get("/dashboard/comment/delete/:id", async (req, res, next) => {
+  try {
+    await CommentModel.findByIdAndRemove(req.params.id);
+    res.redirect("/dashboard/comment");
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+
+
+
+
 module.exports = router;
