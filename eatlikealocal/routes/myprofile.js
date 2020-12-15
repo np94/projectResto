@@ -51,7 +51,7 @@ router.get("/dashboard", async (req, res, next) => {
 // GET - create new resto
 router.get("/dashboard/create", async (req, res, next) => {
   try {
-    res.render("private/create", { script: "script" });
+    res.render("private/create");
   } catch (err) {
     console.log(err);
     next(err);
@@ -110,6 +110,8 @@ router.get("/dashboard/comment", async (req, res, next) => {
     console.log("toto", req.session);
     res.render("private/my-comments", { allComments });
     // console.log(allComments);
+    res.render("private/my-comments", { allComments });
+    console.log(allComments);
   } catch (err) {
     console.log(err);
     next(err);
@@ -127,11 +129,32 @@ router.get("/dashboard/comment/delete/:id", async (req, res, next) => {
 });
 
 // POST comment page
-router.post("/dashboard/comment/create", async (req, res, next) => {
-  const newCom = { ...req.body };
-  console.log(newCom);
+// router.post("/dashboard/comment/create", async (req, res, next) => {
+//   const newCom = { ...req.body };
+//   console.log(newCom);
+//   try {
+//     await CommentModel.create(newCom);
+
+//GET comment id
+router.get("/dashboard/comment/edit/:id", async (req, res, next) => {
   try {
-    await CommentModel.create(newCom);
+    const commentUpdate = await CommentModel.findById(req.params.id);
+    console.log(commentUpdate);
+    res.render("private/comment-edit", { commentUpdate }); // pass the found label to the view
+  } catch (err) {
+    next(err);
+  }
+});
+
+//POST edit comment id
+// -----------------
+router.post("/dashboard/comment/edit/:id", async (req, res, next) => {
+  const commentUpdate = { ...req.body };
+  console.log("post ----", req.body);
+  try {
+    await CommentModel.findByIdAndUpdate(req.params.id, commentUpdate, {
+      new: true,
+    });
     res.redirect("/myprofile/dashboard/comment");
   } catch (err) {
     next(err);

@@ -7,13 +7,9 @@ const restaurantSchema = new Schema(
     name: String,
     genre: String,
     website: { type: String, unique: true },
-    address: {
-      number: String,
-      streetName: String,
-      city: String,
-      zipCode: String,
-      country: String,
-    },
+    streetname: String,
+    city: String,
+    country: String,
     description: String,
     price: { type: String, enum: ["€", "€€", "€€€"] },
     user: {

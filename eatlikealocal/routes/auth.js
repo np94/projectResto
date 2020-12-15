@@ -50,4 +50,20 @@ router.post("/signup", async (req, res, next) => {
     next(err);
   }
 });
+
+router.post('/signout', (req, res) => {
+  // res.sendStatus("hello");
+  req.session.destroy();
+  res.redirect('/');
+});
+
+
+// //GET sign out
+// router.get("/myprofile/dashboard/signout",(req, res) => 
+// {
+//   req.session.destroy(function (err) {
+//     console.log(req.session.currentUser);
+//     res.redirect("/");
+//   });
+// });
 module.exports = router;
