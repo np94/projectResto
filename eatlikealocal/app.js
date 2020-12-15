@@ -1,5 +1,6 @@
 require("dotenv").config();
 require("./config/mongo");
+require("./helpers/hbs");
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
