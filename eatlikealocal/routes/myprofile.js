@@ -51,7 +51,7 @@ router.get("/dashboard", async (req, res, next) => {
 // GET - create new resto
 router.get("/dashboard/create", async (req, res, next) => {
   try {
-    res.render("private/create");
+    res.render("private/create", { script: "script" });
   } catch (err) {
     console.log(err);
     next(err);
