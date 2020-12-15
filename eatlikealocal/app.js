@@ -9,7 +9,9 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-
+const session = require("express-session");
+const flash = require("connect-flash");
+const MongoStore = require("connect-mongo")(session);
 // mongoose
 //   .connect("mongodb://localhost/eatlikealocal", { useNewUrlParser: true })
 //   .then((x) => {
@@ -33,6 +35,26 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//session setup
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 60000 }, // in millisec
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection, // you can store session infos in mongodb :)
+      ttl: 24 * 60 * 60, // 1 day
+    }),
+    saveUninitialized: true,
+    resave: true,
+  })
+);
+
+// below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
+app.locals.site_url = process.env.SITE_URL;
+
+app.use(flash());
 
 // Express View engine setup
 

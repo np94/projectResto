@@ -2,6 +2,7 @@ const UserModel = require("./../model/User");
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const flash = require("connect-flash");
 
 router.get("/signin", async (req, res, next) => {
   res.render("auth/signin");
@@ -10,13 +11,12 @@ router.get("/signin", async (req, res, next) => {
 router.post("/signin", async (req, res, next) => {
   const { email, password } = req.body;
   const foundUser = await UserModel.findOne({ email: email });
-
   if (!foundUser) {
     req.flash("error", "Invalid credentials");
     res.redirect("/auth/signin");
   } else {
     const isSamePassword = bcrypt.compareSync(password, foundUser.password);
-    if (!isSamePassword) {
+    if (password !== foundUser.password) {
       req.flash("error", "Invalid credentials");
       res.redirect("/auth/signin");
     } else {
@@ -24,8 +24,9 @@ router.post("/signin", async (req, res, next) => {
       const userObject = foundUser.toObject();
       delete userObject.password;
       req.session.currentUser = userObject;
+      console.log("you got in!");
       req.flash("success", "Successfully logged in...");
-      res.redirect("/private/index");
+      res.redirect("/myprofile/dashboard");
     }
   }
 });
