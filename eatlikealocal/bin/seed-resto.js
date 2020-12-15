@@ -17,7 +17,7 @@ const restaurants = [
     description: "Nice italian food",
     price: "€€",
     // user: "["default"]",
-    // comment: default,
+    comment: "5fd893e88c0260a44838d7d5",
     picture:
       "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
   },
