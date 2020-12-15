@@ -6,7 +6,7 @@
 
   {{#each allComments}}
 
-  <p>{{this.restaurant}} : {{this.comment}} Added on: {{this.timestamps}} </p>
+  <p>{{this.restaurant.name}} : {{this.comment}} Added on: {{this.timestamps}} </p>
 
   <a href="/myprofile/dashboard/comment/edit/{{this._id}}" class="fa fa-pen"></a>
 

@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema(
   {
     comment: String,
-    // author: [{ type: Schema.Types.ObjectId, ref: "user" }],
-    // restaurant: [{ type: Schema.Types.ObjectId, ref: "restaurant" }],
+    author: { type: Schema.Types.ObjectId, ref: "User" },
+    restaurant: { type: Schema.Types.ObjectId, ref: "Restaurant" },
   },
   { timestamps: true }
 );

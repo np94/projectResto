@@ -1,6 +1,8 @@
 require("dotenv").config();
 require("../config/mongo"); // fetch the db connection
 const RestaurantModel = require("../model/Restaurant"); // fetch the model to validate our user document before insertion (in database)
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const restaurants = [
   {
@@ -16,8 +18,8 @@ const restaurants = [
     },
     description: "Nice italian food",
     price: "€€",
-    // user: "["default"]",
-    comment: "5fd893e88c0260a44838d7d5",
+    user: mongoose.Types.ObjectId("5fd7741fe982536524adf8a3"),
+    comment: [mongoose.Types.ObjectId("5fd8bb21b818dfc6dccf2178")],
     picture:
       "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
   },

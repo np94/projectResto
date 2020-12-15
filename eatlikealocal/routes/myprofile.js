@@ -3,6 +3,7 @@ const router = express.Router();
 const RestaurantModel = require("./../model/Restaurant");
 const UserModel = require("./../model/User");
 const CommentModel = require("./../model/Comment");
+const session = require("express-session");
 
 //Display the index page for a signed in user
 router.get("/", (req, res, next) => {
@@ -35,7 +36,10 @@ router.get("/restaurant/:id", async (req, res, next) => {
 // Display all restaurants added by the user
 router.get("/dashboard", async (req, res, next) => {
   try {
-    const allRestaurants = await RestaurantModel.find({ genre: "Italian" });
+    console.log("session", req.session.currentUser);
+    const allRestaurants = await RestaurantModel.find({
+      // user: req.session.currentUser._id,
+    });
     res.render("private/dashboard", { allRestaurants });
     console.log(allRestaurants);
   } catch (err) {
@@ -103,8 +107,9 @@ router.get("/dashboard/comment", async (req, res, next) => {
     const allComments = await CommentModel.find()
       .populate("author")
       .populate("restaurant");
+    console.log("toto", req.session);
     res.render("private/my-comments", { allComments });
-    console.log(allComments);
+    // console.log(allComments);
   } catch (err) {
     console.log(err);
     next(err);
@@ -115,6 +120,18 @@ router.get("/dashboard/comment", async (req, res, next) => {
 router.get("/dashboard/comment/delete/:id", async (req, res, next) => {
   try {
     await CommentModel.findByIdAndRemove(req.params.id);
+    res.redirect("/myprofile/dashboard/comment");
+  } catch (err) {
+    next(err);
+  }
+});
+
+// POST comment page
+router.post("/dashboard/comment/create", async (req, res, next) => {
+  const newCom = { ...req.body };
+  console.log(newCom);
+  try {
+    await CommentModel.create(newCom);
     res.redirect("/myprofile/dashboard/comment");
   } catch (err) {
     next(err);

@@ -16,8 +16,12 @@ const restaurantSchema = new Schema(
     },
     description: String,
     price: { type: String, enum: ["€", "€€", "€€€"] },
-    user: [{ type: Schema.Types.ObjectId, ref: "user", default: "test" }],
-    // comment: [{ type: Schema.Types.ObjectId, ref: "comment", default: "test" }],
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "users",
+      default: mongoose.Types.ObjectId("5fd7741fe982536524adf8a3"),
+    },
+    comment: [{ type: Schema.Types.ObjectId, ref: "comments" }],
     picture: {
       type: String,
       default:

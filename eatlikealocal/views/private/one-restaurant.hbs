@@ -24,8 +24,10 @@
 
 <p>Should display all the previous comments on this id resto</p>
 
-<form method="post" action="/myprofile/comment">
+<form method="post" action="/myprofile/dashboard/comment/create">
     <label for="comment"></label>
     <input id="comment" name="comment" type="textarea" placeholder="Write your comment">
+    <label for="restaurant" class="label">restaurant</label>
+    <input class="input" type="text" id="restaurant" name="restaurant" value={{_id}}>
     <button>Share</button>
 </form>

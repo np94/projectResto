@@ -4,7 +4,7 @@
   <h1>Your comments</h1>
   {{#each allComments}}
   <p>{{this.restaurant}} : {{this.comment}} Added on: {{this.timestamps}} </p>
-  <a href="/myprofile/comment/edit/{{this._id}}" class="fa fa-pen"></a>
-  <a href="/myprofile/comment/edit/{{this._id}}" class="fa fa-trash"></a>
+  <a href="/myprofile/dashboard/comment/edit/{{this._id}}" class="fa fa-pen"></a>
+  <a href="/myprofile/dashboard/comment/edit/{{this._id}}" class="fa fa-trash"></a>
   {{/each}}
 </div>
