@@ -1,0 +1,10 @@
+<h1>Edit comment</h1>
+
+ <p>{{restaurant.name}} : Added on: {{commentUpdate.createdAt}} </p>
+
+<form method="post" action="/myprofile/dashboard/comment/edit/{{commentUpdate._id}}" class="form">
+    <label for="comment" class="label">Comment</label>
+    <input class="input" type="text" id="comment" name="comment" value={{commentUpdate.comment}}>
+    <button>Submit</button>
+    
+</form>
