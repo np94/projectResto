@@ -1,10 +1,10 @@
 <h1>All restaurants signed in</h1>
 
 {{> navbarprivate}}
-
-{{#each allRestaurants}}
 <div class="card-resto">
-    <div>
+    {{#each allRestaurants}}
+    <div class="all-image">
+
         <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
     </div>
 
@@ -16,5 +16,6 @@
         <p>Added on {{formatDate this.createdAt}}</p>
         <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
     </div>
+
+    {{/each}}
 </div>
-{{/each}}

@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 /* body {
   padding: 50px;
+=======
+body {
+>>>>>>> 67baaa37ba2f500e195a4750487ad62f9bca7ceb
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 } */
 
 /* a {
   color: #00b7ff;
+<<<<<<< HEAD
 } */
 
 .resto-image {
@@ -16,4 +21,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+=======
+>>>>>>> 67baaa37ba2f500e195a4750487ad62f9bca7ceb
 }

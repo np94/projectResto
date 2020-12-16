@@ -1,0 +1,22 @@
+.card-resto {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 10px;
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-flow: column;
+  padding: 20px 110px;
+}
+
+.resto-image {
+  position: relative;
+  max-width: 40vw;
+  max-height: auto;
+  align-items: center;
+}
+
+.resto-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
