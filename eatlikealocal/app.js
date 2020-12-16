@@ -13,6 +13,7 @@ const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
+
 // mongoose
 //   .connect("mongodb://localhost/eatlikealocal", { useNewUrlParser: true })
 //   .then((x) => {
@@ -51,6 +52,8 @@ app.use(
     resave: true,
   })
 );
+
+// splash setup
 
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
 app.locals.site_url = process.env.SITE_URL;

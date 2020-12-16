@@ -9,19 +9,14 @@ const restaurants = [
     name: "Il Latini",
     genre: "Italian",
     website: "www.illatini.com",
-    address: {
-      number: "6R",
-      streetName: "Via dei palchetti",
-      city: "Florence",
-      zipCode: "50100",
-      country: "Italy",
-    },
+    streetName: " 6R Via dei palchetti",
+    city: "50100 Florence",
+    country: "Italy",
     description: "Nice italian food",
     price: "€€",
     user: mongoose.Types.ObjectId("5fd7741fe982536524adf8a3"),
     comment: [mongoose.Types.ObjectId("5fd8bb21b818dfc6dccf2178")],
-    picture:
-      "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
+    picture: "../images/florence1.jpg",
   },
   {
     name: "L'Osteria di Giovanni",
@@ -38,8 +33,7 @@ const restaurants = [
     price: "€€",
     // user: "["default"]",
     // comment: default,
-    picture:
-      "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
+    picture: "../images/florence2.jpg",
   },
 
   {
@@ -57,8 +51,7 @@ const restaurants = [
     price: "€",
     // user: "["default"]",
     // comment: default,
-    picture:
-      "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
+    picture: "../images/florence3.jpg",
   },
   {
     name: "21 MAGYAR VENDÉGLÖ",

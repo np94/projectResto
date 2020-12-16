@@ -9,14 +9,14 @@
     <a href="/myprofile/dashboard/comment">My comments</a>
 
     <form id="logout-form" action="/auth/signout" method="POST">
-    <button>Sign out</button>
-  </form>
+        <button>Sign out</button>
+    </form>
 </nav>
 
 {{#each allRestaurants}}
 <div class="card-resto">
     <div class="resto-image">
-        {{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
+        <img src="{{this.picture}}" alt="picture of {{this.name}}">
     </div>
 
     <div class="resto-text">
