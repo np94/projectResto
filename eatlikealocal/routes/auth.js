@@ -24,7 +24,7 @@ router.post("/signin", async (req, res, next) => {
       const userObject = foundUser.toObject();
       delete userObject.password;
       req.session.currentUser = userObject;
-      console.log("you got in!");
+      console.log("you got in!", userObject._id);
       req.flash("success", "Successfully logged in...");
       res.redirect("/myprofile");
     }

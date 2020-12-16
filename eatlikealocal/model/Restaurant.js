@@ -17,7 +17,7 @@ const restaurantSchema = new Schema(
       ref: "User",
       default: mongoose.Types.ObjectId("5fd7741fe982536524adf8a3"),
     },
-    comment: [{ type: Schema.Types.ObjectId, ref: "comments" }],
+    comment: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     picture: {
       type: String,
       default:

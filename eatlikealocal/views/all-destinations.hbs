@@ -1,0 +1,15 @@
+<h1>All destinations</h1>
+
+<script>
+  const requestUrl =
+    "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixid=MXwxOTExNTJ8MHwxfHNlYXJjaHwxfHxsb25kb258ZW58MHx8fA&ixlib=rb-1.2.1";
+
+  async function getNewImage() {
+    return fetch(requestUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        let allImages = data.results[randomNumber];
+        return allImages.urls.regular;
+      });
+  }
+</script>
