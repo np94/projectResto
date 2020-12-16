@@ -9,9 +9,13 @@
     <a href="/myprofile/dashboard/comment">My comments</a>
 
     <form id="logout-form" action="/auth/signout" method="POST">
-    <button>Sign out</button>
-  </form>
+        <button>Sign out</button>
+    </form>
 </nav>
+
+{{#unless allRestaurants.length}}
+<p>No recommendations yet. Share your best spots !</p>
+{{/unless}}
 
 {{#each allRestaurants}}
 <div class="card-resto">
@@ -25,7 +29,7 @@
         <a href="/myprofile/dashboard/update/{{this._id}}"><i class="fa fa-edit"></i></a>
         <p>{{this.city}}</p>
         <p>{{this.genre}}</p>
-        <p>Added on...</p>
+        <p>Added by you on {{formatDate this.createdAt}}</p>
         <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
     </div>
 </div>

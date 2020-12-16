@@ -1,17 +1,22 @@
 <h1>Your comments</h1>
-{{!-- {{> navbardash }} --}}
+{{> navbardash }}
 
-<nav>
+{{!-- <nav>
   <a href="/myprofile">Home</a>
   <a href="/myprofile/dashboard/create">Add a resto</a>
   <a href="/myprofile/dashboard">My recommendations</a>
   <a href="/myprofile/dashboard/comment">My comments</a>
-  <a href="/myprofile">Log out</a>
-</nav>
+
+  <form id="logout-form" action="/auth/signout" method="POST">
+    <button>Sign out</button>
+  </form>
+</nav> --}}
 
 <div>
 
-
+  {{#unless allComments.length}}
+  <p>You didn't post comments yet. Don't be shy !</p>
+  {{/unless}}
 
   {{#each allComments}}
 
