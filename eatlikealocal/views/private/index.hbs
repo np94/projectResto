@@ -10,11 +10,16 @@
 
     <br>
 
-    <form>
-        <input type="search" placeholder="Where are you going ?" aria-label="Search">
-        <button type="submit">Search</button>
+    <h2>Where are you going ? </p>
+        <select name="Search">
+        {{#each allRestaurants}}
+            <option value="{{this.city}}">
+                {{this.city}}
+            </option>
+         {{/each}}
+        </select>   
+        <a href=""><button type="submit">Search</button></a>
     </form>
-
     <br>
 
     <p>Latest recommendations</p>

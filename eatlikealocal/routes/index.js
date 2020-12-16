@@ -3,15 +3,22 @@ const router = express.Router();
 const RestaurantModel = require("./../model/Restaurant");
 
 /* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
+router.get("/", async (req, res, next) => {
+  try {
+  const allRestaurants = await RestaurantModel.find();
+  console.log(allRestaurants);
+  res.render("index", {allRestaurants} );
+} catch(err) {
+  console.log(err);
+  next(err);
+}
 });
 
 // Display all restaurants
 router.get("/restaurant", async (req, res, next) => {
   try {
     const allRestaurants = await RestaurantModel.find().populate("user");
-    res.render("all-restaurants", { allRestaurants });
+    res.render("all-restaurants", allRestaurants);
     console.log(allRestaurants);
   } catch (err) {
     console.log(err);
