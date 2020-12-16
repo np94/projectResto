@@ -2,24 +2,25 @@
 
 {{> navbarpublic}}
 
-<div>
-    <p>Going on a trip and tired of tourist traps ? <br> We can help you find a perfect place to eat as recommended by
+<div class="homepage-photo">
+    <p class="title-home">Going on a trip and tired of tourist traps ? <br> We can help you find a perfect place to eat
+        as recommended by
         the local community !
     </p>
 
     <br>
 
     <form action="/restaurant/city" method="post" class="get">
-        <h2>Where are you going ? </h2>
-        <select name="city">
+        <h2 id="title-form">Where are you going ? </h2>
+        <select name="city" style="width:40vw" style="height:10vh;">
             <option value="default">Choose a city</option>
-        {{#each cities}}
+            {{#each cities}}
             <option name="city" value="{{this}}">
                 {{this}}
             </option>
-         {{/each}}
-        </select>   
-        <button name="submit" value="submit" type="submit"> Go! </button>
+            {{/each}}
+        </select>
+        <button id="search-city" name="submit" value="submit" type="submit"> Go! </button>
     </form>
 
     {{> footersignup}}
