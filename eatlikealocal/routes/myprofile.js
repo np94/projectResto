@@ -6,14 +6,30 @@ const CommentModel = require("./../model/Comment");
 const session = require("express-session");
 
 //Display the index page for a signed in user
-router.get("/", (req, res, next) => {
-  res.render("private/index");
+// router.get("/", (req, res, next) => {
+//   res.render("private/index");
+// });
+
+// Display the 2 latest resto created by the community
+router.get("/", async (req, res, next) => {
+  try {
+    const twoRestaurants = await RestaurantModel.find()
+      .populate("user")
+      .sort({ createdAt: -1 })
+      .limit(2);
+
+    res.render("private/index", { twoRestaurants });
+    console.log("two", twoRestaurants);
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
 });
 
 // Display all restaurants for a signed in user
 router.get("/restaurant", async (req, res, next) => {
   try {
-    const allRestaurants = await RestaurantModel.find();
+    const allRestaurants = await RestaurantModel.find().populate("user");
     res.render("private/all-restaurants", { allRestaurants });
     console.log(allRestaurants);
   } catch (err) {
@@ -26,6 +42,7 @@ router.get("/restaurant", async (req, res, next) => {
 router.get("/restaurant/:id", async (req, res, next) => {
   try {
     const oneRestaurant = await RestaurantModel.findById(req.params.id);
+
     res.render("private/one-restaurant", oneRestaurant);
     console.log(oneRestaurant);
   } catch (err) {
@@ -33,7 +50,7 @@ router.get("/restaurant/:id", async (req, res, next) => {
   }
 });
 
-// Display all restaurants added by the user
+// Display all restaurants added by the user TO BE FIXED
 router.get("/dashboard", async (req, res, next) => {
   try {
     console.log("session", req.session.currentUser);
@@ -70,6 +87,7 @@ router.post("/dashboard/create", async (req, res, next) => {
   }
 });
 
+// GET - update a resto
 router.get("/dashboard/update/:id", async (req, res, next) => {
   try {
     const restaurantUpdate = await RestaurantModel.findById(req.params.id); // fetch the label to update
@@ -79,6 +97,7 @@ router.get("/dashboard/update/:id", async (req, res, next) => {
   }
 });
 
+// GET - delete a resto
 router.get("/dashboard/delete/:id", async (req, res, next) => {
   try {
     // use the model to delete one label by id
@@ -89,6 +108,7 @@ router.get("/dashboard/delete/:id", async (req, res, next) => {
   }
 });
 
+// POST - update a resto
 router.post("/dashboard/update/:id", async (req, res, next) => {
   const restoToUpdate = { ...req.body };
   try {
@@ -159,6 +179,36 @@ router.post("/dashboard/comment/edit/:id", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+});
+
+// POST - create a comment
+// router.post("/dashboard/comment/create", async (req, res, next) => {
+//   const newCom = { ...req.body };
+//   console.log(newCom);
+//   try {
+//     await CommentModel.create(newCom);
+//     return RestaurantModel.findByIdAndUpdate(restaurant, {
+//       $push: { comment: newCom._id },
+//     });
+//     res.redirect("/myprofile/dashboard/comment");
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
+// POST - create a comment (and push corresponding id resto)
+router.post("/dashboard/comment/create", (req, res) => {
+  const { author, restaurant, comment } = req.body;
+  CommentModel.create({ author, restaurant, comment })
+    .then((newCom) => {
+      return RestaurantModel.findByIdAndUpdate(restaurant, {
+        $push: { comment: newCom._id },
+      });
+    })
+    .then(() => res.redirect("/myprofile/dashboard/comment")) // if everything is fine, redirect to list of posts
+    .catch((err) =>
+      console.log(`Err while creating the post in the DB: ${err}`)
+    );
 });
 
 module.exports = router;

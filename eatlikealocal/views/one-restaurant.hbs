@@ -3,7 +3,7 @@
 <h1>{{name}}</h1>
 {{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
 <p>
-  Cuisine type :{{genre}}.
+  Cuisine type : {{genre}}
   <br>
   Official website is : <a href="http://{{website}}">{{website}}</a>
   <br>
@@ -14,5 +14,10 @@
   Description : {{description}}
   <br>
   Price range : {{price}}
-
+  <br>
+  Recommended by {{this.user.firstname}}
+  <br>
+  Added on {{formatDate this.createdAt}}
 </p>
+
+{{>footersignup}}
