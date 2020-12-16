@@ -65,7 +65,7 @@ router.get("/dashboard", async (req, res, next) => {
       user: req.session.currentUser._id,
     });
     res.render("private/dashboard", { allRestaurants });
-    // console.log(allRestaurants);
+    console.log(allRestaurants);
   } catch (err) {
     console.log(err);
     next(err);
@@ -85,9 +85,10 @@ router.get("/dashboard/create", async (req, res, next) => {
 // POST - create new resto
 router.post("/dashboard/create", async (req, res, next) => {
   const newResto = { ...req.body };
-  console.log(newResto);
+  newResto.user = req.session.currentUser._id;
   try {
-    await RestaurantModel.create(newResto);
+    const resto = await RestaurantModel.create(newResto);
+    console.log("RESTO CREATED:", resto);
     res.redirect("/myprofile/dashboard");
   } catch (err) {
     next(err);
