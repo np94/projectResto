@@ -24,7 +24,7 @@ router.post("/signin", async (req, res, next) => {
       const userObject = foundUser.toObject();
       delete userObject.password;
       req.session.currentUser = userObject;
-      console.log("you got in!");
+      console.log("you got in!", userObject._id);
       req.flash("success", "Successfully logged in...");
       res.redirect("/myprofile");
     }
@@ -41,13 +41,22 @@ router.get("/signup", async (req, res, next) => {
 });
 // TO REVIEW =>  POST Sign-up page
 router.post("/signup", async (req, res, next) => {
-  const newUser = { ...req.body };
-  console.log(newUser);
   try {
-    await UserModel.create(newUser);
-    res.redirect("/myprofile"); //redirect to sign-in home?
-  } catch (err) {
-    next(err);
+    const newUser = { ...req.body };
+    const foundUser = await UserModel.findOne({ email: newUser.email });
+    if (foundUser) {
+      req.flash("warning", "Email already registered");
+      res.send("Email already registered, Please sign in!");
+      res.redirect("/auth/signup");
+    } else {
+      const hashedPassword = bcrypt.hashSync(newUser.password, 10);
+      newUser.password = hashedPassword;
+      await UserModel.create(newUser);
+      req.flash("success", "Congrats ! You are now registered !");
+      res.redirect("/myprofile");
+    }
+  } catch (error) {
+    next(error);
   }
 });
 

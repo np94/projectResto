@@ -13,6 +13,7 @@ const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
 const MongoStore = require("connect-mongo")(session);
+
 // mongoose
 //   .connect("mongodb://localhost/eatlikealocal", { useNewUrlParser: true })
 //   .then((x) => {
@@ -42,7 +43,7 @@ app.use(cookieParser());
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    cookie: { maxAge: 60000 }, // in millisec
+    cookie: { maxAge: 6000000 }, // in millisec
     store: new MongoStore({
       mongooseConnection: mongoose.connection, // you can store session infos in mongodb :)
       ttl: 24 * 60 * 60, // 1 day
@@ -51,6 +52,8 @@ app.use(
     resave: true,
   })
 );
+
+// splash setup
 
 // below, site_url is used in partials/shop_head.hbs to perform ajax request (var instead of hardcoded)
 app.locals.site_url = process.env.SITE_URL;

@@ -3,7 +3,7 @@
 {{> navbarprivate}}
 
 <h1>{{name}}</h1>
-{{!-- <img src="{{this.picture}}" alt="picture of {{this.name}}"> --}}
+<img src="{{this.picture}}" alt="picture of {{this.name}}">
 <p>
     Cuisine type :{{genre}}.
     <br>
@@ -20,19 +20,20 @@
 
 </p>
 
-<form method="post" action="/myprofile/dashboard/comment/create">
-    <label for="comment"></label>
-    <input id="comment" name="comment" type="textarea" placeholder="Write your comment">
-    <label for="restaurant" class="label">restaurant</label>
-    <input class="input" type="text" id="restaurant" name="restaurant" value={{_id}}>
-    {{!-- <label for="author" class="label">author</label>
-    <input class="input" type="text" id="author" name="author" value={{req.session.currentUser._id}}> --}}
-    <button>Share</button>
-</form>
+<h4>Add a comment</h2>
 
-<p>Should display all the previous comments on this id resto</p>
+    <form method="post" action="/myprofile/dashboard/comment/create/{{_id}}">
+        <label for="comment"></label>
+        <input id="comment" name="comment" type="textarea" placeholder="Write your comment">
+        <button>Share</button>
+    </form>
 
-<p>
-    {{comment}}
+    <h4>What our community think about this restaurant</h2>
 
-</p>
+
+        {{#each comment}}
+        {{this.comment}} by {{this.author.firstname}} on {{formatDate this.createdAt}}
+        <br>
+        {{/each}}
+
+        </p>
