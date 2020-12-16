@@ -9,25 +9,19 @@
 
     <br>
 
-    <form>
-        <h2>Where are you going ? </p>
-        <select name="Search">
-        {{#each allRestaurants}}
-            <option value="{{this.city}}">
-                {{this.city}}
+    <form action="/restaurant/city" method="post" class="get">
+        <h2>Where are you going ? </h2>
+        <select name="city">
+            <option value="default">Choose a city</option>
+        {{#each cities}}
+            <option name="city" value="{{this}}">
+                {{this}}
             </option>
          {{/each}}
         </select>   
-        <a href=""><button type="submit">Search</button></a>
+        <button name="submit" value="submit" type="submit"> Go! </button>
     </form>
 
     {{> footersignup}}
 
-    {{!-- To delete if partials is OK --}}
-    {{!-- <p>Are you a local and would love to recommend ? <br> Join our community and share with us your best spots !
-    </p>
-
-    <br> --}}
-    {{!-- Link signup TBC --}}
-    {{!-- <a href="/signup">Sign up !</a> --}}
 </div>
