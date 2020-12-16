@@ -1,6 +1,16 @@
-<h1>All restaurants</h1>
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>All restaurants</h3>
+    </div>
+    {{!-- {{> navbarpublic}} --}}
+    <nav>
+        <a id="navbar" href="/">Home</a>
+        <a id="navbar" href="/restaurant">All restaurants</a>
+        <a id="navbar" href="/auth/signin">Sign in</a>
+    </nav>
+</div>
 
-{{>navbarpublic}}
 
 {{#each allRestaurants}}
 <div class="card-resto">
@@ -19,4 +29,11 @@
 </div>
 {{/each}}
 
-{{>footersignup}}
+{{!-- {{>footersignup}} --}}
+
+<div class="footer-signup">
+    <p>Are you a local and would love to recommend ? Join our community and share with us your best spots !
+        <a href="/auth/signup">Sign up !</a>
+
+    </p>
+</div>

@@ -1,4 +1,15 @@
-{{>navbarpublic}}
+<div class="top-window">
+  <div class="card-title">
+    <h1>Eat like a local</h1>
+    <h3>Some details</h3>
+  </div>
+  {{!-- {{> navbarpublic}} --}}
+  <nav>
+    <a id="navbar" href="/">Home</a>
+    <a id="navbar" href="/restaurant">All restaurants</a>
+    <a id="navbar" href="/auth/signin">Sign in</a>
+  </nav>
+</div>
 
 <h1>{{name}}</h1>
 <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
@@ -20,4 +31,11 @@
   Added on {{formatDate this.createdAt}}
 </p>
 
-{{>footersignup}}
+{{!-- {{>footersignup}} --}}
+
+<div class="footer-signup">
+  <p>Are you a local and would love to recommend ? Join our community and share with us your best spots !
+    <a href="/auth/signup">Sign up !</a>
+
+  </p>
+</div>

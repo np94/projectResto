@@ -1,13 +1,19 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+} */
 
-a {
+/* a {
   color: #00b7ff;
-}
+} */
 
 .resto-image {
   max-width: 50vw;
   max-height: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

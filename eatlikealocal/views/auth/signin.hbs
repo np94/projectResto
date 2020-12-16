@@ -1,16 +1,27 @@
-<div>{{>navbarpublic}}</div>
+<div class="top-window">
+  <div class="card-title">
+    <h1>Eat like a local</h1>
+    <h3>Sign in</h3>
+  </div>
+  {{!-- {{> navbarpublic}} --}}
+  <nav>
+    <a id="navbar" href="/">Home</a>
+    <a id="navbar" href="/restaurant">All restaurants</a>
+    <a id="navbar" href="/auth/signin">Sign in</a>
+  </nav>
+</div>
 
 
 <form method="post" action="/auth/signin" class="form">
-  <h1 class="title">Signin</h1>
+  {{!-- <h1 class="title">Signin</h1> --}}
 
   <label for="email"></label>
   <input class="input" name="email" type="text" value="admin@eatlikealocal.com">
   <label for="password"></label>
   <input class="input" name="password" type="password" placeholder="••••••" required value="1234">
 
-  <button class="btn">go !</button>
-  <hr>
+  <button class="btn-form">go !</button>
+
 
   <p>
     No account yet ? <a class="link" href="/auth/signup"> Please signup !</a>

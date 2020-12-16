@@ -1,6 +1,17 @@
-<h1>Eat like a local</h1>
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>Home</h3>
+    </div>
+    {{!-- {{> navbarpublic}} --}}
+    <nav>
+        <a id="navbar" href="/">Home</a>
+        <a id="navbar" href="/restaurant">All restaurants</a>
+        <a id="navbar" href="/auth/signin">Sign in</a>
+    </nav>
+</div>
 
-{{> navbarpublic}}
+
 
 <div>
     <p>Going on a trip and tired of tourist traps ? <br> We can help you find a perfect place to eat as recommended by
@@ -13,15 +24,22 @@
         <h2>Where are you going ? </h2>
         <select name="city">
             <option value="default">Choose a city</option>
-        {{#each cities}}
+            {{#each cities}}
             <option name="city" value="{{this}}">
                 {{this}}
             </option>
-         {{/each}}
-        </select>   
+            {{/each}}
+        </select>
         <button name="submit" value="submit" type="submit"> Go! </button>
     </form>
 
-    {{> footersignup}}
+    {{!-- {{> footersignup}} --}}
 
+</div>
+
+<div class="footer-signup">
+    <p>Are you a local and would love to recommend ? Join our community and share with us your best spots !
+        <a href="/auth/signup">Sign up !</a>
+
+    </p>
 </div>

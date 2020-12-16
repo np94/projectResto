@@ -1,0 +1,50 @@
+@import url(‘https://fonts.googleapis.com/css2?family=Prata&family=Sniglet&display=swap’);
+
+* {
+  font-family: "Prata", serif;
+}
+
+/* TITLE ET NAV BAR */
+.top-window {
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav a {
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav a:hover {
+  font-weight: bold;
+}
+
+/* FOOTER SIGN UP */
+.footer-signup {
+  height: 5vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.footer-signup a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-signup a:hover {
+  text-decoration: underline;
+}
