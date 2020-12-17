@@ -7,8 +7,6 @@ router.get("/", async (req, res, next) => {
   try {
     const allRestaurants = await RestaurantModel.find();
     const cities = [...new Set(allRestaurants.map((restau) => restau.city))];
-    console.log(cities);
-    console.log("------------------------------------");
     res.render("index", { allRestaurants, cities });
   } catch (err) {
     console.log(err);
