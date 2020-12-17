@@ -42,3 +42,19 @@
   align-items: center;
   line-height: 30px;
 }
+
+.card-resto-private {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resto-text-private {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 30px;
+  padding-bottom: 40px;
+}

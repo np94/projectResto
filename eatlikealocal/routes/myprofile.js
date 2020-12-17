@@ -4,6 +4,7 @@ const RestaurantModel = require("./../model/Restaurant");
 const UserModel = require("./../model/User");
 const CommentModel = require("./../model/Comment");
 const uploader = require("./../config/cloudinary");
+const session = require("express-session");
 
 //Display the index page for a signed in user
 // router.get("/", (req, res, next) => {
