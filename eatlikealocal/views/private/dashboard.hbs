@@ -36,7 +36,7 @@
 
             <p>{{this.city}}</p>
             <p>{{this.genre}}</p>
-            <p>Added by you on {{formatDate this.createdAt}}</p>
+            <p>Added by <strong>you</strong> on {{formatDate this.createdAt}}</p>
             <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
             <div class="manage-reco">
                 <a href="/myprofile/dashboard/delete/{{this._id}}"><i class="fa fa-trash"></i></a>
@@ -46,3 +46,5 @@
     </div>
     {{/each}}
 </div>
+
+<strong></strong>
