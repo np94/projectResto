@@ -16,7 +16,8 @@ const restaurants = [
     price: "€€",
     user: mongoose.Types.ObjectId("5fd7741fe982536524adf8a3"),
     comment: [mongoose.Types.ObjectId("5fd8bb21b818dfc6dccf2178")],
-    picture: "../images/florence1.jpg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198661/eatlikealocal/florence1_pmuccw.jpg",
   },
   {
     name: "L'Osteria di Giovanni",
@@ -29,7 +30,8 @@ const restaurants = [
     price: "€€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/florence2.jpg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198711/eatlikealocal/florence2_xw0w5r.jpg",
   },
 
   {
@@ -43,7 +45,8 @@ const restaurants = [
     price: "€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/florence3.jpg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198698/eatlikealocal/florence3_qf6fx9.jpg",
   },
   {
     name: "21 MAGYAR VENDÉGLÖ",
@@ -56,7 +59,8 @@ const restaurants = [
     price: "€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/budapest1.jpeg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198653/eatlikealocal/budapest1_cxocsj.jpg",
   },
   {
     name: "FATÁL",
@@ -70,7 +74,8 @@ const restaurants = [
     price: "€€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/budapest2.jpeg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198653/eatlikealocal/budapest2_frqf15.jpg",
   },
   {
     name: "BAGOLIVÁR",
@@ -84,7 +89,8 @@ const restaurants = [
     price: "€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/budapest3.jpeg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198654/eatlikealocal/budapest3_febapj.jpg",
   },
   {
     name: "Zenith Café",
@@ -97,7 +103,8 @@ const restaurants = [
     price: "€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/vietnam1.jpg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198720/eatlikealocal/vietnam1_rguoh6.jpg",
   },
   {
     name: "Bun Bo Nam Bo - Ba Ba",
@@ -111,7 +118,8 @@ const restaurants = [
     price: "€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/vietnam2.jpg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198724/eatlikealocal/vietnam2_zwoes1.jpg",
   },
   {
     name: "Hoi An Tofu Restaurant & Coffee",
@@ -124,7 +132,8 @@ const restaurants = [
     price: "€",
     // user: "["default"]",
     // comment: default,
-    picture: "../images/vietnam3.jpg",
+    picture:
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608198718/eatlikealocal/vietnam3_f8qe5c.jpg",
   },
 ];
 

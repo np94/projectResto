@@ -3,6 +3,7 @@ const router = express.Router();
 const RestaurantModel = require("./../model/Restaurant");
 const UserModel = require("./../model/User");
 const CommentModel = require("./../model/Comment");
+const uploader = require("./../config/cloudinary");
 
 //Display the index page for a signed in user
 // router.get("/", (req, res, next) => {
@@ -17,7 +18,10 @@ router.get("/", async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(2);
 
-    res.render("private/index", { twoRestaurants });
+    const allRestaurants = await RestaurantModel.find();
+    const cities = [...new Set(allRestaurants.map((restau) => restau.city))];
+
+    res.render("private/index", { twoRestaurants, cities });
     console.log("two", twoRestaurants);
   } catch (err) {
     console.log(err);
@@ -83,27 +87,46 @@ router.get("/dashboard/create", async (req, res, next) => {
 });
 
 // POST - create new resto
-router.post("/dashboard/create", async (req, res, next) => {
-  const newResto = { ...req.body };
-  newResto.user = req.session.currentUser._id;
-  try {
-    const resto = await RestaurantModel.create(newResto);
-    console.log("RESTO CREATED:", resto);
-    res.redirect("/myprofile/dashboard");
-  } catch (err) {
-    next(err);
+router.post(
+  "/dashboard/create",
+  uploader.single("picture"),
+  async (req, res, next) => {
+    const newResto = { ...req.body };
+    newResto.user = req.session.currentUser._id;
+    if (req.file) {
+      newResto.picture = req.file.path;
+    } else {
+      newResto.picture = undefined;
+    }
+    try {
+      const resto = await RestaurantModel.create(newResto);
+      console.log("RESTO CREATED:", resto);
+      res.redirect("/myprofile/dashboard");
+    } catch (err) {
+      console.log(err);
+      console.log("-------------------------------------");
+      next(err);
+    }
   }
-});
+);
 
 // GET - update a resto
-router.get("/dashboard/update/:id", async (req, res, next) => {
-  try {
-    const restaurantUpdate = await RestaurantModel.findById(req.params.id); // fetch the label to update
-    res.render("private/update", { restaurantUpdate }); // pass the found label to the view
-  } catch (err) {
-    next(err); // if an error occurs, display it on error.hbs page
+router.get(
+  "/dashboard/update/:id",
+  uploader.single("picture"),
+  async (req, res, next) => {
+    const restoToUpdate = { ...req.body };
+    if (req.file && req.file.path) {
+      restoToUpdate.picture = req.file.path;
+    }
+    try {
+      const restaurantUpdate = await RestaurantModel.findById(req.params.id); // fetch the label to update
+      res.render("private/update", { restaurantUpdate }); // pass the found label to the view
+    } catch (err) {
+      next(err); // if an error occurs, display it on error.hbs page
+    }
   }
-});
+);
 
 // GET - delete a resto
 router.get("/dashboard/delete/:id", async (req, res, next) => {
@@ -137,13 +160,13 @@ router.get("/dashboard/comment", async (req, res, next) => {
     })
       .populate("author")
       .populate("restaurant");
-    console.log("toto", req.session);
+    //console.log("req.session", req.session);
     res.render("private/my-comments", { allComments });
     // console.log(allComments);
     res.render("private/my-comments", { allComments });
-    console.log(allComments);
+    //console.log(allComments);
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     next(err);
   }
 });
@@ -169,7 +192,7 @@ router.get("/dashboard/comment/delete/:id", async (req, res, next) => {
 router.get("/dashboard/comment/edit/:id", async (req, res, next) => {
   try {
     const commentUpdate = await CommentModel.findById(req.params.id);
-    console.log(commentUpdate);
+    //console.log(commentUpdate);
     res.render("private/comment-edit", { commentUpdate }); // pass the found label to the view
   } catch (err) {
     next(err);
@@ -180,7 +203,7 @@ router.get("/dashboard/comment/edit/:id", async (req, res, next) => {
 // -----------------
 router.post("/dashboard/comment/edit/:id", async (req, res, next) => {
   const commentUpdate = { ...req.body };
-  console.log("post ----", req.body);
+  //console.log("post ----", req.body);
   try {
     await CommentModel.findByIdAndUpdate(req.params.id, commentUpdate, {
       new: true,
@@ -211,8 +234,8 @@ router.post("/dashboard/comment/create/:id", (req, res) => {
   const { comment } = req.body;
   const author = req.session.currentUser._id;
   const restaurant = req.params.id;
-  console.log("author", author);
-  console.log("comment", comment);
+  //console.log("author", author);
+  //console.log("comment", comment);
   CommentModel.create({ author, restaurant, comment })
     .then((newCom) => {
       return RestaurantModel.findByIdAndUpdate(restaurant, {

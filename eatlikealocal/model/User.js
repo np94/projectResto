@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const uploader = require("./../config/cloudinary");
 
 const userSchema = new Schema({
   firstname: String,
@@ -12,7 +13,7 @@ const userSchema = new Schema({
   avatar: {
     type: String,
     default:
-      "https://www.pinclipart.com/picdir/middle/157-1578186_user-profile-default-image-png-clipart.png",
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1608197816/eatlikealocal/157-1578186_user-profile-default-image-png-clipart_fdxsjh.jpg",
   },
 });
 
