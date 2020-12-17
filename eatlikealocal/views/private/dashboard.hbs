@@ -17,23 +17,32 @@
 </div>
 
 {{#unless allRestaurants.length}}
-<p>No recommendations yet. Share your best spots !</p>
+<div class="no-reco">
+    <p>No recommendations yet. Share your best spots !</p>
+</div>
 {{/unless}}
 
-{{#each allRestaurants}}
-<div class="card-resto">
-    <div class="resto-image">
-        <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
-    </div>
+<div class="dash-reco">
+    {{#each allRestaurants}}
+    <div class="card-resto">
+        <div class="resto-image">
+            <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
+        </div>
 
-    <div class="resto-text">
-        <h3>{{this.name}}</h3>
-        <a href="/myprofile/dashboard/delete/{{this._id}}"><i class="fa fa-trash"></i></a>
-        <a href="/myprofile/dashboard/update/{{this._id}}"><i class="fa fa-edit"></i></a>
-        <p>{{this.city}}</p>
-        <p>{{this.genre}}</p>
-        <p>Added by you on {{formatDate this.createdAt}}</p>
-        <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
+        <div class="resto-text">
+            <h3>{{this.name}}</h3>
+
+
+
+            <p>{{this.city}}</p>
+            <p>{{this.genre}}</p>
+            <p>Added by you on {{formatDate this.createdAt}}</p>
+            <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
+            <div class="manage-reco">
+                <a href="/myprofile/dashboard/delete/{{this._id}}"><i class="fa fa-trash"></i></a>
+                <a href="/myprofile/dashboard/update/{{this._id}}"><i class="fa fa-edit"></i></a>
+            </div>
+        </div>
     </div>
+    {{/each}}
 </div>
-{{/each}}
