@@ -35,7 +35,6 @@ router.post("/restaurant/city", async (req, res, next) => {
     const allRestaurantsByCity = await RestaurantModel.find({
       city: req.body.city,
     });
-
     console.log("---------------all resto", allRestaurantsByCity);
     res.render("all-restaurants-by-city", { allRestaurantsByCity });
   } catch (err) {

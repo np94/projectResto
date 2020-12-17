@@ -17,7 +17,11 @@
 </div>
 
 {{#unless allComments.length}}
-<p>You didn't post comments yet. Don't be shy !</p>
+<div class="no-com">
+  <p>You didn't post comments yet.</p>
+  <p>Don't be shy !</p>
+</div>
+
 {{/unless}}
 
 {{#each allComments}}

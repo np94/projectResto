@@ -1,0 +1,11 @@
+.no-com {
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 10%;
+}
+
+.no-com p {
+  padding-right: 10px;
+}
