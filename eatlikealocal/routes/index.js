@@ -1,12 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const RestaurantModel = require("./../model/Restaurant");
-<<<<<<< HEAD
 const uploader = require("./../config/cloudinary");
-=======
 const UserModel = require("./../model/User");
 const CommentModel = require("./../model/Comment");
->>>>>>> e5d51f7d8353c0822a7886de1c1066a407c82040
 
 // Display home page
 router.get("/", async (req, res, next) => {
