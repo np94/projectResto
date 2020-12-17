@@ -1,7 +1,7 @@
 <div class="top-window">
     <div class="card-title">
         <h1>Eat like a local</h1>
-        <h3>Hey you</h3>
+        <h4>Hey you</h4>
     </div>
     {{!-- {{> navbarprivate}} --}}
     <nav>
@@ -12,6 +12,7 @@
             <button>Sign out</button>
         </form>
     </nav>
+
 </div>
 
 
@@ -24,7 +25,7 @@
     <br>
 
 
-      <form action="/restaurant/city" method="post" class="get">
+    <form action="/restaurant/city" method="post" class="get">
         <h2 id="title-form">Where are you going ? </h2>
         <select name="city" style="width:40vw" style="height:10vh;">
             <option value="default">Choose a city</option>
@@ -37,23 +38,23 @@
         <button id="search-city" name="submit" value="submit" type="submit"> Go! </button>
     </form>
 
-        <br>
+    <br>
 
-        <p>Latest recommendations</p>
+    <p>Latest recommendations</p>
 
-        {{#each twoRestaurants}}
-        <div class="card-resto">
-            <div>
-                <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
-            </div>
-
-            <div class="resto-text">
-                <h3>{{this.name}}</h3>
-                <p>{{this.city}}</p>
-                <p>{{this.genre}}</p>
-                <p>Recommended by {{this.user.firstname}}</p>
-                <p>Added on {{formatDate this.createdAt}}</p>
-                <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
-            </div>
+    {{#each twoRestaurants}}
+    <div class="card-resto">
+        <div>
+            <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
         </div>
-        {{/each}}
+
+        <div class="resto-text">
+            <h3>{{this.name}}</h3>
+            <p>{{this.city}}</p>
+            <p>{{this.genre}}</p>
+            <p>Recommended by {{this.user.firstname}}</p>
+            <p>Added on {{formatDate this.createdAt}}</p>
+            <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
+        </div>
+    </div>
+    {{/each}}

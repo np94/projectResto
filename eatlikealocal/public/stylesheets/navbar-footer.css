@@ -10,18 +10,23 @@
   display: flex;
   justify-content: space-around;
   border-bottom: black;
-  /* position: fixed;
-  top: 0; */
+  position: fixed;
+  z-index: 1;
+}
+
+.card-title h1 {
+  padding-top: 5px;
 }
 
 .card-title {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* max-width: 40vw; */
 }
 
-.card-title h3:before,
-.card-title h3:after {
+.card-title h4:before,
+.card-title h4:after {
   content: "";
   display: inline-block;
   vertical-align: middle;
@@ -29,10 +34,10 @@
   height: 1px;
   background: #000;
 }
-.card-title h3:before {
+.card-title h4:before {
   margin-right: 0.3rem;
 }
-.card-title h3:after {
+.card-title h4:after {
   margin-left: 0.3rem;
 }
 
@@ -40,10 +45,12 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-align: center;
+  /* max-width: 60vw; */
 }
 
 nav a {
-  margin: 15px 45px;
+  margin: 15px 30px;
   text-decoration: none;
   color: inherit;
 }
@@ -91,16 +98,9 @@ nav a:hover {
 
 /* ICONE  */
 i {
-  /* padding: 50px;
-  background-color: green; */
   transition: transform 0.2s; /* Animation */
-  /* width: 200px;
-  height: 200px;
-  margin: 0 auto; */
 }
 
 i:hover {
-  transform: scale(
-    1.2
-  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(1.2);
 }
