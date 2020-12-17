@@ -49,3 +49,21 @@ footer > i {
   padding-right: 5px;
   padding-left: 5px;
 }
+
+.title-profile {
+  position: relative;
+  text-align: center;
+  top: 10vh;
+}
+
+.latest-rec {
+  padding: 20px 100px;
+}
+
+.get {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+}

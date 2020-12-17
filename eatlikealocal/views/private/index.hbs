@@ -12,19 +12,10 @@
             <button>Sign out</button>
         </form>
     </nav>
-
 </div>
 
-
-
 <div>
-    <p>Going on a trip and tired of tourist traps ? <br> We can help you find a perfect place to eat as recommended by
-        the local community !
-    </p>
-
-    <br>
-
-
+    <h2 class="title-profile">Nice to see you again!</h2>
     <form action="/restaurant/city" method="post" class="get">
         <h2 id="title-form">Where are you going ? </h2>
         <select name="city" style="width:40vw" style="height:10vh;">
@@ -40,7 +31,7 @@
 
     <br>
 
-    <p>Latest recommendations</p>
+    <h3 class="latest-rec">Latest recommendations</h3>
 
     {{#each twoRestaurants}}
     <div class="card-resto">
