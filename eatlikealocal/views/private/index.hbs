@@ -1,6 +1,19 @@
-<h1>Eat like a local</h1>
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>Hey you</h3>
+    </div>
+    {{!-- {{> navbarprivate}} --}}
+    <nav>
+        <a href="/myprofile">Home</a>
+        <a href="/myprofile/restaurant">All restaurants</a>
+        <a href="/myprofile/dashboard">My profile</a>
+        <form id="logout-form" action="/auth/signout" method="POST">
+            <button>Sign out</button>
+        </form>
+    </nav>
+</div>
 
-{{> navbarprivate}}
 
 
 <div>
@@ -12,31 +25,31 @@
 
     <h2>Where are you going ? </p>
         <select name="Search">
-        {{#each allRestaurants}}
+            {{#each allRestaurants}}
             <option value="{{this.city}}">
                 {{this.city}}
             </option>
-         {{/each}}
-        </select>   
+            {{/each}}
+        </select>
         <a href=""><button type="submit">Search</button></a>
-    </form>
-    <br>
+        </form>
+        <br>
 
-    <p>Latest recommendations</p>
+        <p>Latest recommendations</p>
 
-    {{#each twoRestaurants}}
-    <div class="card-resto">
-        <div>
-            <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
+        {{#each twoRestaurants}}
+        <div class="card-resto">
+            <div>
+                <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
+            </div>
+
+            <div class="resto-text">
+                <h3>{{this.name}}</h3>
+                <p>{{this.city}}</p>
+                <p>{{this.genre}}</p>
+                <p>Recommended by {{this.user.firstname}}</p>
+                <p>Added on {{formatDate this.createdAt}}</p>
+                <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
+            </div>
         </div>
-
-        <div class="resto-text">
-            <h3>{{this.name}}</h3>
-            <p>{{this.city}}</p>
-            <p>{{this.genre}}</p>
-            <p>Recommended by {{this.user.firstname}}</p>
-            <p>Added on {{formatDate this.createdAt}}</p>
-            <a href="/myprofile/restaurant/{{this.id}}">See more details</a>
-        </div>
-    </div>
-    {{/each}}
+        {{/each}}

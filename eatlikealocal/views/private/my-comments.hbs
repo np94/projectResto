@@ -1,31 +1,33 @@
-<h1>Your comments</h1>
-{{> navbardash }}
+<div class="top-window">
+  <div class="card-title">
+    <h1>Eat like a local</h1>
+    <h3>Your com <i class="fa fa-heart"></i> </h3>
+  </div>
+  {{!-- {{> navbardash}} --}}
+  <nav>
+    <a href="/myprofile">Home</a>
+    <a href="/myprofile/dashboard/create">Add a resto</a>
+    <a href="/myprofile/dashboard">My recommendations</a>
+    <a href="/myprofile/dashboard/comment">My comments</a>
 
-{{!-- <nav>
-  <a href="/myprofile">Home</a>
-  <a href="/myprofile/dashboard/create">Add a resto</a>
-  <a href="/myprofile/dashboard">My recommendations</a>
-  <a href="/myprofile/dashboard/comment">My comments</a>
+    <form id="logout-form" action="/auth/signout" method="POST">
+      <button>Sign out</button>
+    </form>
+  </nav>
+</div>
 
-  <form id="logout-form" action="/auth/signout" method="POST">
-    <button>Sign out</button>
-  </form>
-</nav> --}}
+{{#unless allComments.length}}
+<p>You didn't post comments yet. Don't be shy !</p>
+{{/unless}}
 
-<div>
+{{#each allComments}}
 
-  {{#unless allComments.length}}
-  <p>You didn't post comments yet. Don't be shy !</p>
-  {{/unless}}
+<p>{{this.restaurant.name}} : {{this.comment}} Added on: {{formatDate this.updatedAt}} </p>
 
-  {{#each allComments}}
+<a href="/myprofile/dashboard/comment/edit/{{this._id}}" class="fa fa-pen"></a>
 
-  <p>{{this.restaurant.name}} : {{this.comment}} Added on: {{formatDate this.updatedAt}} </p>
+<a href="/myprofile/dashboard/comment/delete/{{this._id}}" class="fa fa-trash"></a>
 
-  <a href="/myprofile/dashboard/comment/edit/{{this._id}}" class="fa fa-pen"></a>
-
-  <a href="/myprofile/dashboard/comment/delete/{{this._id}}" class="fa fa-trash"></a>
-
-  {{/each}}
+{{/each}}
 
 </div>

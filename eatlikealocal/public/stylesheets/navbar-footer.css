@@ -9,12 +9,30 @@
   height: 10vh;
   display: flex;
   justify-content: space-around;
+  /* position: fixed;
+  top: 0; */
 }
 
 .card-title {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.card-title h3:before,
+.card-title h3:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 2rem;
+  height: 1px;
+  background: #000;
+}
+.card-title h3:before {
+  margin-right: 0.3rem;
+}
+.card-title h3:after {
+  margin-left: 0.3rem;
 }
 
 nav {
@@ -24,7 +42,7 @@ nav {
 }
 
 nav a {
-  padding: 10px;
+  margin: 15px 45px;
   text-decoration: none;
   color: inherit;
 }
@@ -33,11 +51,31 @@ nav a:hover {
   font-weight: bold;
 }
 
+/* PRIVATE NAV BAR */
+
+#logout-form {
+  border: none;
+  border-radius: 1.125rem;
+  padding: 1%;
+  width: 15%;
+  cursor: pointer;
+  background: black;
+  color: #fff;
+}
+
+#logout-form button {
+  cursor: pointer;
+  background: black;
+  color: #fff;
+  border: none;
+}
+
 /* FOOTER SIGN UP */
 .footer-signup {
   height: 5vh;
   width: 100vw;
   text-align: center;
+  padding-top: 5px;
 }
 
 .footer-signup a {
@@ -47,4 +85,20 @@ nav a:hover {
 
 .footer-signup a:hover {
   text-decoration: underline;
+}
+
+/* ICONE  */
+i {
+  /* padding: 50px;
+  background-color: green; */
+  transition: transform 0.2s; /* Animation */
+  /* width: 200px;
+  height: 200px;
+  margin: 0 auto; */
+}
+
+i:hover {
+  transform: scale(
+    1.2
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

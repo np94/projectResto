@@ -1,10 +1,26 @@
-<h1>Edit comment</h1>
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>Update com </h3>
+    </div>
+    {{!-- {{> navbardash}} --}}
+    <nav>
+        <a href="/myprofile">Home</a>
+        <a href="/myprofile/dashboard/create">Add a resto</a>
+        <a href="/myprofile/dashboard">My recommendations</a>
+        <a href="/myprofile/dashboard/comment">My comments</a>
 
- <p>{{restaurant.name}} : Added on: {{commentUpdate.createdAt}} </p>
+        <form id="logout-form" action="/auth/signout" method="POST">
+            <button>Sign out</button>
+        </form>
+    </nav>
+</div>
+
+<p>{{restaurant.name}} : Added on: {{commentUpdate.createdAt}} </p>
 
 <form method="post" action="/myprofile/dashboard/comment/edit/{{commentUpdate._id}}" class="form">
     <label for="comment" class="label">Comment</label>
     <input class="input" type="text" id="comment" name="comment" value={{commentUpdate.comment}}>
     <button>Submit</button>
-    
+
 </form>

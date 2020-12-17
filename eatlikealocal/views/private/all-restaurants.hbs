@@ -1,6 +1,19 @@
-<h1>All restaurants signed in</h1>
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>All restaurants</h3>
+    </div>
+    {{!-- {{> navbarprivate}} --}}
+    <nav>
+        <a href="/myprofile">Home</a>
+        <a href="/myprofile/restaurant">All restaurants</a>
+        <a href="/myprofile/dashboard">My profile</a>
+        <form id="logout-form" action="/auth/signout" method="POST">
+            <button>Sign out</button>
+        </form>
+    </nav>
+</div>
 
-{{> navbarprivate}}
 <div class="card-resto">
     {{#each allRestaurants}}
     <div class="all-image">

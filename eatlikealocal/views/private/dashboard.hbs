@@ -1,17 +1,20 @@
-<h1>All resto recommended by me <i class="fa fa-heart"></i></h1>
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>Your spots <i class="fa fa-heart"></i> </h3>
+    </div>
+    {{!-- {{> navbardash}} --}}
+    <nav>
+        <a href="/myprofile">Home</a>
+        <a href="/myprofile/dashboard/create">Add a resto</a>
+        <a href="/myprofile/dashboard">My recommendations</a>
+        <a href="/myprofile/dashboard/comment">My comments</a>
 
-{{!-- {{> navbardash}} --}}
-
-<nav>
-    <a href="/myprofile">Home</a>
-    <a href="/myprofile/dashboard/create">Add a resto</a>
-    <a href="/myprofile/dashboard">My recommendations</a>
-    <a href="/myprofile/dashboard/comment">My comments</a>
-
-    <form id="logout-form" action="/auth/signout" method="POST">
-        <button>Sign out</button>
-    </form>
-</nav>
+        <form id="logout-form" action="/auth/signout" method="POST">
+            <button>Sign out</button>
+        </form>
+    </nav>
+</div>
 
 {{#unless allRestaurants.length}}
 <p>No recommendations yet. Share your best spots !</p>

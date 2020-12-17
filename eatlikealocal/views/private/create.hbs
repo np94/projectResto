@@ -1,26 +1,48 @@
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>Add <i class="fa fa-heart"></i> </h3>
+    </div>
+    {{!-- {{> navbardash}} --}}
+    <nav>
+        <a href="/myprofile">Home</a>
+        <a href="/myprofile/dashboard/create">Add a resto</a>
+        <a href="/myprofile/dashboard">My recommendations</a>
+        <a href="/myprofile/dashboard/comment">My comments</a>
+
+        <form id="logout-form" action="/auth/signout" method="POST">
+            <button>Sign out</button>
+        </form>
+    </nav>
+</div>
+
+
 <form method="post" action="/myprofile/dashboard/create" class="form">
-    <h1 class="title">Share a spot</h1>
-    <label for="name" class="label">name</label>
-    <input class="input" type="text" id="name" name="name" value="Darroco">
-    <label for="streetname" class="label">address</label>
-    <input class="input" type="text" id="streetname" name="streetname" value="5 rue Vivienne">
-    <label for="city" class="label">city</label>
-    <input class="input" type="text" id="city" name="city" value="Paris">
-    <label for="country" class="label">country</label>
-    <input class="input" type="text" id="country" name="country" value="France">
-    <label for="website" class="label">website link</label>
-    <input class="input" type="text" id="website" name="website" value="https://www.daroco.fr/restaurant/daroco-bourse">
+    <h1 class="title">Share a new spot !</h1>
+    <label for="name" class="label">Name</label>
+    <input class="input" type="text" id="name" name="name" value="Darroco" placeholder="Name of the restaurant">
+    <label for="streetname" class="label">Address</label>
+    <input class="input" type="text" id="streetname" name="streetname" value="5 rue Vivienne" placeholder="Adress">
+    <label for="city" class="label">City</label>
+    <input class="input" type="text" id="city" name="city" value="Paris" placeholder="City">
+    <label for="country" class="label">Country</label>
+    <input class="input" type="text" id="country" name="country" value="France" placeholder="Country">
+    <label for="website" class="label">Website link</label>
+    <input class="input" type="text" id="website" name="website" value="https://www.daroco.fr/restaurant/daroco-bourse"
+        placeholder="Website">
     <label for="description" class="label">Tell us why you love this place !</label>
     {{!-- <input class="input" type="text" id="description" name="description" value="Good food and lovely design"> --}}
-    <textarea name="description" id="description" cols="30" rows="3"></textarea>
-    <label for="genre" class="label">genre</label>
-    <input class="input" type="text" id="genre" name="genre" value="Italian">
-    <label for="price" class="label">price</label>
-    <input class="input" type="text" id="price" name="price" value="€€">
+    <textarea name="description" id="description" cols="75" rows="3"
+        placeholder="Tell us why you love this place !"></textarea>
+    <label for="genre" class="label">Genre</label>
+    <input class="input" type="text" id="genre" name="genre" value="Italian" placeholder="Genre">
+    <label for="price" class="label">Price range</label>
+    <input class="input" type="text" id="price" name="price" value="€€" required pattern="€|€€|€€€"
+        placeholder="Choose €, €€ or €€€">
     <label for="picture" class="label">
-        choose a picture
+        Choose a picture
         <i class="icon fas fa-cloud-upload-alt fa-2x"></i>
     </label>
     <input class="is-hidden" type="file" id="picture" name="picture">
-    <button class="btn">Share</button>
+    <button class="btn-form">Share !</button>
 </form>

@@ -1,6 +1,18 @@
-<h1>One resto for signed in user</h1>
-
-{{> navbarprivate}}
+<div class="top-window">
+    <div class="card-title">
+        <h1>Eat like a local</h1>
+        <h3>Some details</h3>
+    </div>
+    {{!-- {{> navbarprivate}} --}}
+    <nav>
+        <a href="/myprofile">Home</a>
+        <a href="/myprofile/restaurant">All restaurants</a>
+        <a href="/myprofile/dashboard">My profile</a>
+        <form id="logout-form" action="/auth/signout" method="POST">
+            <button>Sign out</button>
+        </form>
+    </nav>
+</div>
 
 <h1>{{name}}</h1>
 
