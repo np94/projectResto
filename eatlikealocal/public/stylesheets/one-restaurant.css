@@ -1,0 +1,17 @@
+.one-restoname {
+  padding: 40px 110px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.one-restoname > h1 {
+  padding: 15px;
+}
+
+.one-restotext {
+  padding: 15px;
+  line-height: 25px;
+}

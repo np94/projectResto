@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+
 .card-resto {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -19,4 +21,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  line-height: 30px;
+}
+
+#bold-this {
+  font-weight: bold;
 }

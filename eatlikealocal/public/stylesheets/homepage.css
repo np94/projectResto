@@ -20,7 +20,7 @@
 .title-home {
   color: white;
   font-size: 35px;
-  top: 10px;
+  top: 5vh;
   text-align: center;
 }
 
@@ -28,20 +28,24 @@
   color: white;
   font-size: 25px;
   text-align: center;
+  padding: 3vh;
 }
 
 #search-city {
-  padding: 0 5px;
+  height: 3vh;
+  width: 10vh;
+  top: 3vh;
+  position: relative;
 }
 
-footer{
+footer {
   color: gray;
   font-size: 10px;
   display: flex;
   justify-content: center;
 }
 
-footer > i{
-  padding-right:5px;
-  padding-left:5px;
+footer > i {
+  padding-right: 5px;
+  padding-left: 5px;
 }
