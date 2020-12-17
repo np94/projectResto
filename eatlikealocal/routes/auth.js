@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const flash = require("connect-flash");
+const uploader = require("./../config/cloudinary");
 
 router.get("/signin", async (req, res, next) => {
   res.render("auth/signin");
