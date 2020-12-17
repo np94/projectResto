@@ -1,0 +1,23 @@
+.no-reco {
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.dash-reco {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px 20px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.manage-reco {
+  display: inline;
+}
+
+.manage-reco a {
+  color: black;
+  padding-right: 5px;
+}

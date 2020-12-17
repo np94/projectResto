@@ -19,24 +19,24 @@
 
 <form method="post" action="/myprofile/dashboard/create" class="form" enctype="multipart/form-data">
     <h1 class="title">Share a new spot !</h1>
-    <label for="name" class="label">Name</label>
+    <label for="name" class="label is-hidden">Name</label>
     <input class="input" type="text" id="name" name="name" value="Darroco" placeholder="Name of the restaurant">
-    <label for="streetname" class="label">Address</label>
+    <label for="streetname" class="label is-hidden">Address</label>
     <input class="input" type="text" id="streetname" name="streetname" value="5 rue Vivienne" placeholder="Adress">
-    <label for="city" class="label">City</label>
+    <label for="city" class="label is-hidden">City</label>
     <input class="input" type="text" id="city" name="city" value="Paris" placeholder="City">
-    <label for="country" class="label">Country</label>
+    <label for="country" class="label is-hidden">Country</label>
     <input class="input" type="text" id="country" name="country" value="France" placeholder="Country">
-    <label for="website" class="label">Website link</label>
+    <label for="website" class="label is-hidden">Website link</label>
     <input class="input" type="text" id="website" name="website" value="https://www.daroco.fr/restaurant/daroco-bourse"
         placeholder="Website">
-    <label for="description" class="label">Tell us why you love this place !</label>
+    <label for="description" class="label is-hidden">Tell us why you love this place !</label>
     {{!-- <input class="input" type="text" id="description" name="description" value="Good food and lovely design"> --}}
     <textarea name="description" id="description" cols="75" rows="3"
         placeholder="Tell us why you love this place !"></textarea>
-    <label for="genre" class="label">Genre</label>
+    <label for="genre" class="label is-hidden">Genre</label>
     <input class="input" type="text" id="genre" name="genre" value="Italian" placeholder="Genre">
-    <label for="price" class="label">Price range</label>
+    <label for="price" class="label is-hidden">Price range</label>
     <input class="input" type="text" id="price" name="price" value="€€" required pattern="€|€€|€€€"
         placeholder="Choose €, €€ or €€€">
     <label for="picture" class="label">

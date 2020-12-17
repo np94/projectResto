@@ -9,6 +9,7 @@
   height: 10vh;
   display: flex;
   justify-content: space-around;
+  border-bottom: black;
   /* position: fixed;
   top: 0; */
 }

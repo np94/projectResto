@@ -8,6 +8,16 @@
   color: #fff;
 }
 
+/* .btn-form:active {
+  border: none;
+  border-radius: 1.5rem;
+  padding: 1%;
+  width: 20%;
+  cursor: pointer;
+  background: #fff;
+  color: black;
+} */
+
 form {
   display: flex;
   flex-direction: column;
@@ -20,13 +30,22 @@ form {
   border-radius: 1.5rem;
   width: 50vw;
   height: 30px;
-  margin: 1.5%;
+  margin: 1%;
   padding: 0 10px;
+}
+
+textarea {
+  border-radius: 1.5rem;
+  width: 50vw;
+  height: 100px;
+  margin: 1%;
+  padding: 10px;
+  border: solid 2px;
 }
 
 label {
   line-height: 15px;
-  margin: 5px;
+  margin: 1%;
 }
 
 form p {
