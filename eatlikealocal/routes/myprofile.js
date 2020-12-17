@@ -18,7 +18,10 @@ router.get("/", async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(2);
 
-    res.render("private/index", { twoRestaurants });
+    const allRestaurants = await RestaurantModel.find();
+    const cities = [...new Set(allRestaurants.map((restau) => restau.city))];
+
+    res.render("private/index", { twoRestaurants, cities });
     console.log("two", twoRestaurants);
   } catch (err) {
     console.log(err);
