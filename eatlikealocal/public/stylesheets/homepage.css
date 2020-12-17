@@ -33,3 +33,15 @@
 #search-city {
   padding: 0 5px;
 }
+
+footer{
+  color: gray;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+footer > i{
+  padding-right:5px;
+  padding-left:5px;
+}
