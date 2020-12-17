@@ -159,7 +159,8 @@ router.get("/dashboard/comment", async (req, res, next) => {
       author: req.session.currentUser._id,
     })
       .populate("author")
-      .populate("restaurant");
+      .populate("restaurant")
+      .sort({ createdAt: -1 });
     //console.log("req.session", req.session);
     res.render("private/my-comments", { allComments });
     // console.log(allComments);
@@ -191,8 +192,10 @@ router.get("/dashboard/comment/delete/:id", async (req, res, next) => {
 //GET comment id
 router.get("/dashboard/comment/edit/:id", async (req, res, next) => {
   try {
-    const commentUpdate = await CommentModel.findById(req.params.id);
-    //console.log(commentUpdate);
+    const commentUpdate = await CommentModel.findById(req.params.id).populate(
+      "restaurant"
+    );
+    console.log(commentUpdate);
     res.render("private/comment-edit", { commentUpdate }); // pass the found label to the view
   } catch (err) {
     next(err);

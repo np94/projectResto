@@ -24,7 +24,7 @@
 
 {{/unless}}
 
-{{#each allComments}}
+{{!-- {{#each allComments}}
 
 <p>{{this.restaurant.name}} : {{this.comment}} Added on: {{formatDate this.updatedAt}} </p>
 
@@ -32,6 +32,31 @@
 
 <a href="/myprofile/dashboard/comment/delete/{{this._id}}" class="fa fa-trash"></a>
 
-{{/each}}
+{{/each}} --}}
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Restaurant</th>
+      <th>Comment</th>
+      <th>Edit/Delete</th>
+    </tr>
+  </thead>
+  {{#each allComments}}
+  <tbody>
+    <tr>
+      <td>{{formatDate this.updatedAt}}</td>
+      <td>{{this.restaurant.name}}</td>
+      <td class="table-com">{{this.comment}}</td>
+      <td><a href="/myprofile/dashboard/comment/edit/{{this._id}}" class="fa fa-edit manage-com"></a>
+        <a href="/myprofile/dashboard/comment/delete/{{this._id}}" class="fa fa-trash manage-com"></a>
+      </td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
+
 
 </div>

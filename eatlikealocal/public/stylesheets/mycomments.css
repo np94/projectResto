@@ -1,3 +1,4 @@
+/* NO COMMENT YET */
 .no-com {
   height: 85vh;
   width: 100vw;
@@ -8,4 +9,48 @@
 
 .no-com p {
   padding-right: 10px;
+}
+
+/* TABLE COMMENTS */
+table th {
+  border-bottom: 1px solid black;
+}
+
+tbody:last-child {
+  width: 5em;
+}
+
+table {
+  text-align: center;
+  margin: 40px auto auto auto;
+}
+
+.manage-com {
+  color: black;
+  padding-right: 5px;
+}
+
+table td,
+th {
+  width: 10em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 10px 30px;
+}
+
+.table-com {
+  max-width: 40em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.com-edit {
+  border-radius: 1.5rem;
+  width: 50vw;
+  height: 60px;
+  margin: 1%;
+  padding: 0 10px;
 }

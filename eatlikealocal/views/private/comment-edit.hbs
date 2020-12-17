@@ -16,11 +16,20 @@
     </nav>
 </div>
 
-<p>{{restaurant.name}} : Added on: {{commentUpdate.createdAt}} </p>
+{{!-- <p>{{restaurant.name}} : Added on: {{commentUpdate.createdAt}} </p> --}}
+{{!-- <p>Update your comment posted on {{formatDate commentUpdate.createdAt}} for {{commentUpdate.restaurant.name}}</p>
+--}}
 
 <form method="post" action="/myprofile/dashboard/comment/edit/{{commentUpdate._id}}" class="form">
-    <label for="comment" class="label">Comment</label>
-    <input class="input" type="text" id="comment" name="comment" value={{commentUpdate.comment}}>
-    <button>Submit</button>
+    <label for="comment" class="label">
+        <p>Update your comment posted on {{formatDate commentUpdate.createdAt}} for {{commentUpdate.restaurant.name}}
+        </p>
+    </label>
+    <textarea name="comment" id="comment" cols="75" rows="3" value="{{commentUpdate.comment}}"></textarea>
+
+    {{!-- <input class="input com-edit" type="text" id="comment" name="comment" value=""
+        placeholder={{commentUpdate.comment}}> --}}
+
+    <button class="btn-form">Update</button>
 
 </form>

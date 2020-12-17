@@ -64,8 +64,8 @@ nav a:hover {
 #logout-form {
   border: none;
   border-radius: 1.125rem;
-  padding: 1%;
-  width: 15%;
+  padding: 1.5%;
+  width: 17%;
   cursor: pointer;
   background: black;
   color: #fff;
