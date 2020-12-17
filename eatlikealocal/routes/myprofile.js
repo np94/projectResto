@@ -33,8 +33,10 @@ router.get("/", async (req, res, next) => {
 // Display all restaurants for a signed in user
 router.get("/restaurant", async (req, res, next) => {
   try {
-    const allRestaurants = await RestaurantModel.find().populate("comment");
-    // console.log(allRestaurants[0]);
+    const allRestaurants = await RestaurantModel.find()
+      .populate("comment")
+      .populate("user");
+    console.log(allRestaurants[0]);
     res.render("private/all-restaurants", { allRestaurants });
   } catch (err) {
     console.log(err);
@@ -250,6 +252,20 @@ router.post("/dashboard/comment/create/:id", (req, res) => {
     .catch((err) =>
       console.log(`Err while creating the post in the DB: ${err}`)
     );
+});
+
+//Display all restaurants by city
+router.post("/restaurant/city", async (req, res, next) => {
+  try {
+    const allRestaurantsByCity = await RestaurantModel.find({
+      city: req.body.city,
+    }).populate("user");
+    console.log("---------------all resto", allRestaurantsByCity);
+    res.render("private/all-restaurants-by-city", { allRestaurantsByCity });
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
 });
 
 module.exports = router;

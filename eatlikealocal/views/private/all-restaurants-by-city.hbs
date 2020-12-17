@@ -1,0 +1,34 @@
+<div class="top-window">
+  <div class="card-title">
+    <h1>Eat like a local</h1>
+    <h4>{{allRestaurantsByCity.0.city}}</h4>
+  </div>
+  {{!-- {{> navbarprivate}} --}}
+  <nav>
+    <a href="/myprofile">Home</a>
+    <a href="/myprofile/restaurant">All restaurants</a>
+    <a href="/myprofile/dashboard">My profile</a>
+    <form id="logout-form" action="/auth/signout" method="POST">
+      <button>Sign out</button>
+    </form>
+  </nav>
+</div>
+
+{{#each allRestaurantsByCity}}
+<div class="card-resto">
+  <div>
+    <img class="resto-image" src="{{this.picture}}">
+  </div>
+
+  <div class="resto-text">
+    <h3>{{this.name}}</h3>
+    <p>{{this.city}}</p>
+    <p>{{this.genre}}</p>
+    <p>Recommended by {{this.user.firstname}}</p>
+    <p>Added on {{formatDate this.createdAt}}</p>
+    <a href="/restaurant/{{this.id}}">See more details</a>
+  </div>
+</div>
+{{/each}}
+
+{{!-- {{>footersignup}} --}}

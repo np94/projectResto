@@ -14,40 +14,67 @@
     </nav>
 </div>
 
-<h1>{{name}}</h1>
-
-<img class="resto-image" src="{{picture}}">
-
-<p>
-    Cuisine type :{{genre}}.
-    <br>
-    Official website is : <a href="http://{{website}}">{{website}}</a>
-    <br>
-    Address:
-    {{streetname}}
-    <br>
-    Description : {{description}}
-    <br>
-    Price range : {{price}}
-    <br>
-    Recommended by {{this.user.firstname}} on {{formatDate this.createdAt}}
-
-</p>
-
-<h4>Add a comment</h2>
-
-    <form method="post" action="/myprofile/dashboard/comment/create/{{_id}}">
-        <label for="comment"></label>
-        <input id="comment" name="comment" type="textarea" placeholder="Write your comment">
-        <button>Share</button>
-    </form>
-
-    <h4>What our community think about this restaurant</h2>
-
-
-        {{#each comment}}
-        {{this.comment}} by {{this.author.firstname}} on {{formatDate this.createdAt}}
+<div class="one-restoname">
+    <img class="resto-image" src="{{this.picture}}" alt="picture of {{this.name}}">
+    <h1 class="title-oneresto">{{name}}</h1>
+    <p class="one-restotext">
+        Cuisine type : {{genre}}
         <br>
-        {{/each}}
+        Official website is : <a href="http://{{website}}">{{website}}</a>
+        <br>
+        Address:
+        {{streetname}}
 
-        </p>
+        <br>
+        Description : {{description}}
+        <br>
+        Price range : {{price}}
+        <br>
+        Recommended by {{this.user.firstname}}
+        <br>
+        Added on {{formatDate this.createdAt}}
+    </p>
+</div>
+
+<div class="add-com">
+    <h4 style="text-decoration: underline; text-underline-position: under;">What our community think about this
+        restaurant...</h4>
+
+    {{#unless comment.length}}
+    <div class="one-resto-com">
+        <p>Oups... no post yet</p>
+    </div>
+    {{/unless}}
+
+    {{#if comment.length}}
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Author</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        {{#each comment}}
+        <tbody>
+            <tr>
+                <td>{{formatDate this.updatedAt}}</td>
+                <td>{{this.author.firstname}}</td>
+                <td class="table-com">{{this.comment}}</td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+    {{/if}}
+
+    <br>
+    <h4>Wanna share your experience ? Add a comment</h4>
+
+    <form class="create-com" method="post" action="/myprofile/dashboard/comment/create/{{_id}}">
+        <label for="comment"></label>
+        <textarea name="comment" id="comment" cols="75" rows="3" value=""
+            placeholder="Tell us about your experience"></textarea>
+        {{!-- <input id="comment" name="comment" type="textarea" placeholder="Write your comment"> --}}
+        <button class="btn-form">Share</button>
+    </form>
+</div>
