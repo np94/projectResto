@@ -27,3 +27,18 @@
 #bold-this {
   font-weight: bold;
 }
+
+.dash-reco {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resto-text-reco {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 30px;
+}
