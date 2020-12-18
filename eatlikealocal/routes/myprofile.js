@@ -49,6 +49,7 @@ router.get("/restaurant/:id", async (req, res, next) => {
   try {
     const oneRestaurant = await RestaurantModel.findById(req.params.id)
       .populate("comment")
+      .populate("user")
       .populate({
         path: "comment",
         populate: {
