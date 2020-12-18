@@ -18,7 +18,8 @@
 
 
 
-<form method="post" action="/myprofile/dashboard/update/{{restaurantUpdate._id}}" class="form">
+<form method="post" action="/myprofile/dashboard/update/{{restaurantUpdate._id}}" class="form"
+  enctype="multipart/form-data">
   <h1 class="title">Update a spot</h1>
   <label for="name" class="label">Name</label>
   <input class="input" type="text" id="name" name="name" value="{{restaurantUpdate.name}}">
