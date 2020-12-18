@@ -24,6 +24,14 @@
   line-height: 30px;
 }
 
+.resto-text > a :hover {
+  font-weight: bold;
+}
+
+.resto-text > a {
+  color: black;
+}
+
 #bold-this {
   font-weight: bold;
 }
