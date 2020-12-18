@@ -24,7 +24,7 @@
   line-height: 30px;
 }
 
-.resto-text > a :hover {
+.resto-text > a:hover {
   font-weight: bold;
 }
 
