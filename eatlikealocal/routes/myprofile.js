@@ -122,6 +122,7 @@ router.get(
     if (req.file && req.file.path) {
       restoToUpdate.picture = req.file.path;
     }
+
     try {
       const restaurantUpdate = await RestaurantModel.findById(req.params.id); // fetch the label to update
       res.render("private/update", { restaurantUpdate }); // pass the found label to the view
@@ -143,17 +144,27 @@ router.get("/dashboard/delete/:id", async (req, res, next) => {
 });
 
 // POST - update a resto
-router.post("/dashboard/update/:id", async (req, res, next) => {
-  const restoToUpdate = { ...req.body };
-  try {
-    await RestaurantModel.findByIdAndUpdate(req.params.id, restoToUpdate, {
-      new: true,
-    });
-    res.redirect("/myprofile/dashboard");
-  } catch (err) {
-    next(err);
+router.post(
+  "/dashboard/update/:id",
+  uploader.single("picture"),
+  async (req, res, next) => {
+    const restoToUpdate = { ...req.body };
+    if (req.file && req.file.path) {
+      restoToUpdate.picture = req.file.path;
+    }
+    // else {
+    //   delete restoToUpdate.picture;
+    // }
+    try {
+      await RestaurantModel.findByIdAndUpdate(req.params.id, restoToUpdate, {
+        new: true,
+      });
+      res.redirect("/myprofile/dashboard");
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
 
 // GET My Comments page
 router.get("/dashboard/comment", async (req, res, next) => {
