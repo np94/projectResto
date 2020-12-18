@@ -52,7 +52,7 @@ router.post("/signup", async (req, res, next) => {
     } else {
       const hashedPassword = bcrypt.hashSync(newUser.password, 10);
       newUser.password = hashedPassword;
-      await UserModel.create(newUser);
+      req.session.currentUser = await UserModel.create(newUser);
       req.flash("success", "Congrats ! You are now registered !");
       res.redirect("/myprofile");
     }
